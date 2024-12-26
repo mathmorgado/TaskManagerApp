@@ -168,7 +168,7 @@ class TodoApp:
         # Handle task selection on click
         def select_task(event) -> None:
             # If a task was previously selected, reset its color to "white"
-            if self.selected_task_frame:
+            if self.selected_task_frame and self.selected_task_frame.winfo_exists():
                 self.selected_task_frame.configure(fg_color="white")
 
             # Select the new task and change its color to "lightblue"
