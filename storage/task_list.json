@@ -1,1 +1,20 @@
-[]
+[
+    {
+        "id": "2e8cabc7-bf38-4e4d-b659-9ea40ec274d5",
+        "title": "task3",
+        "deadline": "24/12/2024",
+        "completed": false
+    },
+    {
+        "id": "8af8ada5-e228-4bb2-a6e0-82d99d1fba05",
+        "title": "task 1",
+        "deadline": "25/12/2024",
+        "completed": true
+    },
+    {
+        "id": "bd75fb93-5631-4372-9f9c-9d8752bbef65",
+        "title": "task 4",
+        "deadline": "27/12/2024",
+        "completed": false
+    }
+]
