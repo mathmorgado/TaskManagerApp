@@ -57,7 +57,7 @@ class TodoApp:
         # Root window configuration
         self.root = root
         self.root.title("TODO LIST")
-        self.root.geometry("460x600")
+        self.root.geometry("525x600")
         self.root.resizable(False, False)
 
         # Configure appearance settings
