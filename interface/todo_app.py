@@ -64,11 +64,14 @@ class TodoApp:
         ctk.set_appearance_mode("light")
         ctk.set_default_color_theme("blue")
 
-         # Holds the currently selected task
+        # Holds the currently selected task
         self.selected_task = None
 
         # Holds the currently selected frame task
         self.selected_task_frame = None
+    
+        # Holds the current query
+        self.query = None
 
         # Title section at the top of the window
         self.title_frame = ctk.CTkFrame(root, fg_color="#576cd6", height=70)
@@ -206,7 +209,7 @@ class TodoApp:
             """
             task.completed = checkbox_var.get()
             self.task_manager.update_task(task.title, completed=task.completed)
-            self.load_tasks(filter_type)
+            self.load_tasks(filter_type, self.query)
 
         checkbox = ctk.CTkCheckBox(
             task_frame,
@@ -248,7 +251,7 @@ class TodoApp:
         self.selected_task = None
 
         # Reload tasks with the current filter applied
-        self.load_tasks(self.filtred_type)
+        self.load_tasks(self.filtred_type, self.query)
 
     def open_add_task_window(self) -> None:
         """
@@ -365,7 +368,7 @@ class TodoApp:
             else:
                 new_task = Task(title, deadline)
                 self.task_manager.add_task(new_task)
-            self.load_tasks(self.filtred_type)
+            self.load_tasks(self.filtred_type, self.query)
             add_window.destroy()
 
         # Button to save the task
@@ -397,5 +400,5 @@ class TodoApp:
             - Retrieves the search query from the search bar.
             - Calls `load_tasks` to update the displayed tasks based on the query and current filter.
         """
-        query = self.search_entry.get()
-        self.load_tasks(filter_type=self.filtred_type, query=query)
+        self.query = self.search_entry.get()
+        self.load_tasks(filter_type=self.filtred_type, query=self.query)
